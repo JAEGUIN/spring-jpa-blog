@@ -1,0 +1,35 @@
+server:
+  port: 8000
+  servlet:
+    context-path: /blog
+    encoding:
+      charset: UTF-8
+      enabled: true
+      force: true
+    
+spring:
+  mvc:
+    view:
+      prefix: /WEB-INF/views/
+      suffix: .jsp
+      
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/blog?serverTimezone=Asia/Seoul
+    username: root
+    password: asdf1234
+    
+  jpa:
+    open-in-view: true
+    hibernate:
+      ddl-auto: create  #처음에만 create 하고 나중에 update로 바꿔야함.
+      naming:
+        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl #Entity만들떄 변수명 그대로 필드에 넣어준다
+      use-new-id-generator-mappings: false
+    show-sql: true  #여기를 true로 걸어놔서 콘솔창에 crate table user가 정렬되서 튀어나옴
+    properties:
+      hibernate.format_sql: true
+
+  jackson:
+    serialization:
+      fail-on-empty-beans: false
