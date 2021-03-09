@@ -32,7 +32,7 @@ public class Board {
 	
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY) //auto_increment 사용
-	private Long id;  //혹시 안되면 int로 바꿔
+	private int id;  //혹시 안되면 int로 바꿔
 	
 	@Column(nullable = false, length = 100)
 	private String title;

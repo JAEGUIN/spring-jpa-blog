@@ -30,7 +30,7 @@ public class User {
 	
 	@Id  //Primary key
 	@GeneratedValue(strategy = GenerationType.IDENTITY)  // 프로젝트에 연결된 db의 넘버링 전략을 따라감
-	private Long id; //시퀀스, auto_increment로 넘버링해줌  혹시 안되면 int로 바꿔
+	private int id; //시퀀스, auto_increment로 넘버링해줌  혹시 안되면 int로 바꿔
 	
 	@Column(nullable = false, length = 30)
 	private String username; //id 대용
