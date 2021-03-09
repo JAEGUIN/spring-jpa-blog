@@ -1,15 +1,18 @@
 package com.jaeguinblog.I.model;
 
 import java.sql.Timestamp;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.Lob;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 
 import org.hibernate.annotations.ColumnDefault;
 import org.hibernate.annotations.CreationTimestamp;
@@ -40,10 +43,20 @@ public class Board {
 	@ColumnDefault("0")
 	private int count; //조회수
 	
-	@ManyToOne  //userId라고만 하면 연관관계가 없어서 맺어줄러면 manytoone을 호출한다. Many = many, User=one
+	//fetch가 오는건 너가 보드 태이블을 가지고 오면 유저정보는 가져온다는 뜻 왜냐면 한건 밖에 없으니 가져옴
+	@ManyToOne(fetch = FetchType.EAGER)  //userId라고만 하면 연관관계가 없어서 맺어줄러면 manytoone을 호출한다. Many = many, User=one
 	@JoinColumn(name="userId")
 	private User user; //JPA에서 DB는 오브젝트를 저장할 수 없다. FK, 자바는 오브젝트를 저장할 수 있다.
 							   //원래는 java에서 int로 키값으로 저장함.
+	
+	
+	//mappedby는 연관관계의 주인이 아니다.(난 Foreign key 가 아니다.) 따라서 db에 컬럼 만들지 말아요
+	//fetch 기능 상세하게 나중에 복습!!!
+	@OneToMany(mappedBy = "board",fetch = FetchType.EAGER) 
+	private List<Reply> reply;
+	//유저는 1개여도 되지만 리플은 여러개다 따라서 리스트로 해줘야함
+	//여러개의 답변을 얻을 수 있어서 onetomany가 됨
+	
 	@CreationTimestamp
 	private Timestamp createDate;
 	

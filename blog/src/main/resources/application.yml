@@ -22,7 +22,7 @@ spring:
   jpa:
     open-in-view: true
     hibernate:
-      ddl-auto: create  #처음에만 create 하고 나중에 update로 바꿔야함.
+      ddl-auto: update  #처음에만 create 하고 나중에 update로 바꿔야함.
       naming:
         physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl #Entity만들떄 변수명 그대로 필드에 넣어준다
       use-new-id-generator-mappings: false
