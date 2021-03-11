@@ -1,5 +1,0 @@
-package com.jaeguinblog.I.handler;
-
-public class GlobalExceptionHandler {
-
-}

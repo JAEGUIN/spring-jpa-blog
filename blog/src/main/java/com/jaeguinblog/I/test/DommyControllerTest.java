@@ -6,10 +6,12 @@ import java.util.function.Supplier;
 import javax.transaction.Transactional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.data.web.PageableDefault;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -29,8 +31,19 @@ public class DommyControllerTest {
 	private UserRepository userRepository;
 	//이건 null인데 오토와이어드로 자동 연결됨.
 	
+	@DeleteMapping("/dummy/user/{id}")
+	public String delete(@PathVariable int id) {
+		try {
+			userRepository.deleteById(id);
+		} catch (EmptyResultDataAccessException e) {
+			return "delete fail! id no exist!";
+		} //다른 exception이 걸릴 수도 있으니 EmptyResultDataAccessException을 써주는게 좋음.
+		
+		return "delete"+id;
+	}
 	
-	@Transactional //save 대신 사용     
+	
+	@Transactional //save 대신 사용      acid를 기억하자!
 	@PutMapping("/dummy/user/{id}") //아래 있는건 getmapping이라 주소가 같아도 안 겹친다. //email, pw 받아야함   //json데이터를 요청 => java object로 변환해서 받아줌(messageconverter의 jackson라이브러리가 변환해서 받아줌.)
 	public User updateUser(@PathVariable int id, @RequestBody User requestUser) {
 		System.out.println("id: " +id);
@@ -49,7 +62,7 @@ public class DommyControllerTest {
 		//id를 전달하면 해당 id에 대한 데이터가 없면 insert를 한다.
 		//userRepository.save(requestUser);
 		
-		return null;
+		return user;
 	}//json데이터를 받을러면 @requestbody가 필요함
 	
 	
