@@ -2,6 +2,8 @@
 <%@ taglib prefix = "c" uri = "http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 
+
+<!-- https://www.baeldung.com/spring-security-taglibs 참고  -->
 <sec:authorize access="isAuthenticated()">
 	<!-- 현재 유저 오브젝트에 접근하게 해줌 -->
 	<sec:authentication property="principal" var="principal"/>
@@ -32,8 +34,8 @@
 	    <c:choose>
 	    	<c:when test="${empty principal}">
 			    <ul class="navbar-nav">
-			      <li class="nav-item"><a class="nav-link" href="/loginForm">Login</a></li>
-			      <li class="nav-item"><a class="nav-link" href="/joinForm">Join</a></li>
+			      <li class="nav-item"><a class="nav-link" href="/auth/loginForm">Login</a></li>
+			      <li class="nav-item"><a class="nav-link" href="/auth/joinForm">Join</a></li>
 			    </ul>
 	    	
 	    	</c:when>

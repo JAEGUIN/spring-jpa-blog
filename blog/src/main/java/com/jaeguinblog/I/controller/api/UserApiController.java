@@ -18,7 +18,7 @@ public class UserApiController {
 	private UserService userService;
 		
 	
-	@PostMapping("/api/user")
+	@PostMapping("/auth/joinProc")
 	public ResponseDto<Integer> save(@RequestBody User user) {//username,email,pw
 		System.out.println("UserApiController:save 호출됨.");
 		//실제로 db에 insert하고 아래에서 return이 되야함.
@@ -27,16 +27,4 @@ public class UserApiController {
 		return new ResponseDto<Integer>(HttpStatus.OK.value(),1);//1에는 나중에 db insert하고 리턴된값 넣을거임.
 		
 	}
-	
-//	@PostMapping("/api/user/login")
-//	public ResponseDto<Integer> login(@RequestBody User user, HttpSession session){
-//		System.out.println("UserApiController:login 호출됨.");
-//		User principal = userService.login(user); //principal (접근 주체)
-//		
-//		if(principal != null ) { //null이 아니면 세션을 만들어주어 
-//			session.setAttribute("principal", principal);
-//		} 
-//		return new ResponseDto<Integer>(HttpStatus.OK.value(),1);
-//	}
-
 }

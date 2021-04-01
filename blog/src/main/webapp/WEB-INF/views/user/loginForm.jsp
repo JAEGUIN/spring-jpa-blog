@@ -3,27 +3,28 @@
 <%@ include file="../layout/header.jsp" %>
 
 <div class="container">
-	<form>
+	<form action="#" method="post">
 		<div class="form-group">
-			<label for="email">Email address:</label> <input type="email"
-				class="form-control" placeholder="Enter email" id="email">
+			<label for="email">Email address:</label> 
+			<input type="email" name="email" class="form-control" placeholder="Enter email" id="email">
 		</div>
 		
 		<div class="form-group">
-			<label for="pwd">Password:</label> <input type="password"
-				class="form-control" placeholder="Enter password" id="password">
+			<label for="password">Password:</label> 
+			<input type="password" name="password" class="form-control" placeholder="Enter password" id="password">
 		</div>
 		<div class="form-group form-check">
-			<label class="form-check-label"> <input
-				class="form-check-input" type="checkbox"> Remember me
+			<label class="form-check-label"> 
+			<input name="remember" class="form-check-input" type="checkbox"> Remember me
 			</label>
 		</div>
+		<button id="btn-login" class="btn btn-primary">Sign in</button>
 		
 	</form>
-	<button id="btn-login" class="btn btn-primary">Sign in</button>
+	
 
 
 </div>
 
-<script src="/js/user.js"></script>
+<!-- script src="/js/user.js"-->
 <%@ include file="../layout/footer.jsp" %>
