@@ -13,6 +13,6 @@ public class GlobalExceptionHandler {
 
 	@ExceptionHandler(value=Exception.class)//ill~ception 대신 쓰면 더 넓은 범위가 exception 된다.
 	public ResponseDto<String> handleArgumentException(Exception e) {
-		return new ResponseDto<String>(HttpStatus.INTERNAL_SERVER_ERROR.value(),e.getMessage());
+		return new ResponseDto<String>(HttpStatus.INTERNAL_SERVER_ERROR.value(), e.getMessage()); // 500
 	}
 }

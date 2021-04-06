@@ -1,7 +1,10 @@
 package com.jaeguinblog.I.repository;
 
+import java.util.Optional;
+
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
+import org.springframework.stereotype.Repository;
 
 import com.jaeguinblog.I.model.User;
 
@@ -10,13 +13,9 @@ import com.jaeguinblog.I.model.User;
 
 //덕분에 @Repository 가 생략 가능하다.
 public interface UserRepository extends JpaRepository<User, Integer>{
-	
+	// SELECT * FROM user WHERE username = 1?;
+	Optional<User> findByUsername(String username);
 }
-
-
-
-
-
 
 
 	//Jpa naming 전략
