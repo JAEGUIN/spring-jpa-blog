@@ -3,10 +3,10 @@
 
 	</br>
 	
-	<div class="jumbotron text-center" style="margin-bottom:0">
+	<footer class="jumbotron text-center" style="margin-bottom:0">
 	  <p>Designed by Jaeguin</p>
 	  <p>Gangnam, Seoul</p>
-	</div>
+	</footer>
 
 </body>
 </html>

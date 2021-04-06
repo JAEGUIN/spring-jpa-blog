@@ -40,8 +40,7 @@ public class Board {
 	@Lob//대용량 데이터
 	private String content; //섬머노트 라이브러리 <html> 태그가 섞여서 디자인됨.
 	
-	@ColumnDefault("0")
-	private int count; //조회수
+	private int count; //조회수 , @ColumnDefault("0") 이거는 따로 값을 넣을거니 지워준다.
 	
 	//fetch가 오는건 너가 보드 태이블을 가지고 오면 유저정보는 가져온다는 뜻 왜냐면 한건 밖에 없으니 가져옴
 	@ManyToOne(fetch = FetchType.EAGER)  //userId라고만 하면 연관관계가 없어서 맺어줄러면 manytoone을 호출한다. Many = many, User=one

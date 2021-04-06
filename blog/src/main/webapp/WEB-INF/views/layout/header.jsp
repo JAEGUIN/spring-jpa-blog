@@ -20,7 +20,32 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
   
+  <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-bs4.min.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-bs4.min.js"></script>
+    
+  
 </head>
+
+<style>
+
+html, body {
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    display: table;
+}
+
+footer {
+	
+    background-color: grey;
+    display: table-row;
+    margin: auto;
+    height: 14%;
+    
+}
+
+</style>
+
 <body>
 
 	<nav class="navbar navbar-expand-md bg-dark navbar-dark">
@@ -41,8 +66,8 @@
 	    	</c:when>
 	    	<c:otherwise>
 			    <ul class="navbar-nav">
-			      <li class="nav-item"><a class="nav-link" href="/board/form">Write</a></li>
-			      <li class="nav-item"><a class="nav-link" href="/user/form">User Profile</a></li>
+			      <li class="nav-item"><a class="nav-link" href="/board/saveForm">Write</a></li>
+			      <li class="nav-item"><a class="nav-link" href="/user/updateForm">User Profile</a></li>
 			      <li class="nav-item"><a class="nav-link" href="/logout">Logout</a></li>
 			    </ul>
 	    	
