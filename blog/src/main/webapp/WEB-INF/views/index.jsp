@@ -1,19 +1,18 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=EUC-KR"  pageEncoding="EUC-KR"%>
 <%@ include file="layout/header.jsp" %>
 
 	
 	<div class="container">
-		<div class="card">
-		  
-		  <div class="card-body">
-		    <h4 class="card-title">제목적는 부분</h4>
-		    <p class="card-text">내용적는 부분</p>
-		    <a href="#" class="btn btn-primary">상세보기</a>
-		  </div>
+	
+	<c:forEach var="board" items="${boards}">
+		<div class="card m-2">
+			<div class="card-body">
+				<h4 class="card-title">${board.title}</h4>
+				<a href="#" class="btn btn-primary">상세보기</a>
+			</div>
 		</div>
-	  	
-	  
+	</c:forEach>
+	
 	</div>
 
 <%@ include file="layout/footer.jsp" %>

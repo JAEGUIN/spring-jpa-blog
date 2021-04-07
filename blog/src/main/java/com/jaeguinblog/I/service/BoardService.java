@@ -1,5 +1,7 @@
 package com.jaeguinblog.I.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -22,4 +24,9 @@ public class BoardService {
 		board.setUser(user);
 		boardRepository.save(board);			
 	}
+	
+	public List<Board> postlist(){
+		return boardRepository.findAll(); //findall로 리스트 가져온다
+	}
+	
 }
