@@ -1,8 +1,8 @@
 package com.jaeguinblog.I.service;
 
-import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -25,8 +25,8 @@ public class BoardService {
 		boardRepository.save(board);			
 	}
 	
-	public List<Board> postlist(){
-		return boardRepository.findAll(); //findall로 리스트 가져온다
+	public Page<Board> postlist(Pageable pageable){
+		return boardRepository.findAll(pageable); //findall로 리스트 가져온다
 	}
 	
 }

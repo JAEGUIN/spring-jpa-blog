@@ -21,9 +21,9 @@ public class BoardController {
 	private BoardService boardService;
 
 	@GetMapping({"", "/"})
-	public String index(Model model) { //데이터를 가져오기 위해 model 사용
+	public String index(Model model, @PageableDefault(size=3, sort="id", direction = Sort.Direction.DESC) Pageable pageable) { //데이터를 가져오기 위해 model 사용
 
-		model.addAttribute("boards", boardService.postlist());
+		model.addAttribute("boards", boardService.postlist(pageable));
 		return "index"; //viewResolver 작동하고 해당 index패이지로 정보를 들고 있음
 	}
 	
