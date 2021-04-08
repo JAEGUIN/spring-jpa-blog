@@ -27,6 +27,13 @@ public class BoardController {
 		return "index"; //viewResolver 작동하고 해당 index패이지로 정보를 들고 있음
 	}
 	
+	@GetMapping("/board/{id}")
+	public String findById(@PathVariable int id, Model model) {
+		model.addAttribute("board", boardService.postdetail(id)	);
+		return "board/detail";
+	}
+	
+	
 	//USER 권한이 필요
 	@GetMapping("/board/saveForm")
 	public String saveForm() {
