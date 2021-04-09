@@ -42,13 +42,6 @@ public class BoardService {
 	
 	@Transactional
     public void postdelete(int id, PrincipalDetail principal) {
-        Board board = boardRepository.findById(id).orElseThrow(() -> {
-            return new IllegalArgumentException("글 찾기 실패 : 해당 글이 존재하지 않습니다.");
-        });
-
-        if (board.getUser().getId() != principal.getUser().getId()) {
-            throw new IllegalStateException("글 삭제 실패 : 해당 글을 삭제할 권한이 없습니다.");
-        }
-        boardRepository.delete(board);
+        boardRepository.deleteById(id);
 	}
 }

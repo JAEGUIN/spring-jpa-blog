@@ -24,10 +24,10 @@
 		  <div>${board.content}</div>
 		</div>
 		
-		
+		<c:if test="${board.user.id == principal.user.id}">
 		<button id="btn-update" class="btn btn-warning"> edit </button>
 		<button id="btn-delete" class="btn btn-danger"> del </button>
-		
+		</c:if>
 	
 	</div>
 	
