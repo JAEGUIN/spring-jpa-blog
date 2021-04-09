@@ -9,6 +9,11 @@
 		
 		<br/><br/>
 		
+		<div>
+		 post No.<span id = "id"><i>${board.id}</i></span><br/>
+		 writer : <span><i>${board.user.username}</i></span><br/>
+		 </div>
+		
 		<div class="form-group">
 			
 			<h3>${board.title}</h3>
@@ -20,8 +25,8 @@
 		</div>
 		
 		
-		<button class="btn btn-warning"> edit </button>
-		<button class="btn btn-danger"> del </button>
+		<button id="btn-update" class="btn btn-warning"> edit </button>
+		<button id="btn-delete" class="btn btn-danger"> del </button>
 		
 	
 	</div>

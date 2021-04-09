@@ -19,22 +19,28 @@ public class BoardService {
 	private BoardRepository boardRepository;
 	
 	@Transactional
-	public void write(Board board, User user) { //title, content
+	public void postwrite(Board board, User user) { //title, content
 		board.setCount(0); //board.java에서 조회수 , @ColumnDefault("0") 이거는 따로 값을 넣을거니 지운 부분
 		board.setUser(user);
 		boardRepository.save(board);			
 	}
 	
+	@Transactional(readOnly = true)
 	public Page<Board> postlist(Pageable pageable){
 		return boardRepository.findAll(pageable); //findall로 리스트 가져온다
 	}
 	
-	
+	@Transactional(readOnly = true)
 	public Board postdetail(int id) {
 		return boardRepository.findById(id)
 				.orElseThrow(()->{
 					return new IllegalArgumentException("글 상세보기 실패!");					
 				});
 		
+	}
+	
+	@Transactional
+	public void postdelete(int id) {
+		boardRepository.deleteById(id);
 	}
 }
