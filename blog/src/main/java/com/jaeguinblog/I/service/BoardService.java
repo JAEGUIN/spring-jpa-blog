@@ -44,4 +44,15 @@ public class BoardService {
     public void postdelete(int id, PrincipalDetail principal) {
         boardRepository.deleteById(id);
 	}
+	
+	@Transactional
+	public void postedit(int id, Board requestBoard) {
+		Board board = boardRepository.findById(id)
+				.orElseThrow(()->{
+					return new IllegalArgumentException("글 찾기 실패!");					
+				}); //영속화 완료
+		board.setTitle(requestBoard.getTitle());
+		board.setContent(requestBoard.getContent());
+		//해당 함수로 종료시(service가 종료될 때) 트랜잭션이 종료됩니다.
+	}
 }

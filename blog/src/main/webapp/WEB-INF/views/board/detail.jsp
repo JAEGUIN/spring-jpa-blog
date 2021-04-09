@@ -25,8 +25,8 @@
 		</div>
 		
 		<c:if test="${board.user.id == principal.user.id}">
-		<button id="btn-update" class="btn btn-warning"> edit </button>
-		<button id="btn-delete" class="btn btn-danger"> del </button>
+		<a href="/board/${board.id}/updateForm" class="btn btn-warning"> edit </a>
+		<a id="btn-delete" class="btn btn-danger"> del </a>
 		</c:if>
 	
 	</div>
