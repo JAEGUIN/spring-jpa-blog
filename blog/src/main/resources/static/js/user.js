@@ -4,12 +4,16 @@ let index = {
 			this.save();
 		});
 		
+		$("#btn-update").on("click", ()=>{ //function(){}, ()=>{}this를 바인딩하기 위해!
+			this.update();
+		});
+		
 	},
 	
 	save:function(){
 		//alert('user의 save함수 호출됨'); 팝업창
 		let data = {
-			username: $("#username").val(),
+			id: $("#id").val(),
 			email: $("#email").val(),
 			password: $("#password").val(),
 		}
@@ -36,6 +40,32 @@ let index = {
 			alert(JSON.stringify(error));
 			
 		}); // ajax통신을 이용해서 3개의 데이터를 json으로 변경하여 inser요청
+	},	
+	
+	
+	
+	update:function(){
+		let data = {
+			email: $("#email").val(),
+			password: $("#password").val(),
+		}
+		
+		$.ajax({
+			
+			type:"POST",
+			url:"/auth/joinProc",
+			data:JSON.stringify(data), 
+			contentType:"application/json; charset=utf-8", 
+			dataType:"json" 
+			
+		}).done(function(resp){
+			alert("회원가입 완료!");
+			location.href="/";
+			
+		}).fail(function(error){
+			alert(JSON.stringify(error));
+			
+		}); 
 	},	
 } 
 
