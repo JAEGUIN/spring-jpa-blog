@@ -4,25 +4,24 @@
 
 <div class="container">
 	<form>
-		<input type="hidden" id="id" value="${principal.user.id }" />
 		<div class="form-group">
 			<label for="username">Username:</label> 
-			<input type="text" value="${principal.user.username}" class="form-control" placeholder="Enter username" id="username" readonly>
+			<input type="text" value="${principal.user.username }" class="form-control" placeholder="Enter username" id="username" readonly>
 		</div>
 		
 		<div class="form-group">
 			<label for="email">Email address:</label> 
-			<input type="email" value="${principal.user.email}"  class="form-control" placeholder="Enter email" id="email">
+			<input type="email" value="${principal.user.email }" class="form-control" placeholder="Enter email" id="email">
 		</div>
 		
 		<div class="form-group">
 			<label for="pwd">Password:</label> 
-			<input type="password"   class="form-control" placeholder="Enter password" id="password">
+			<input type="password"class="form-control" placeholder="Enter password" id="password">
 		</div>
 		
 		
 	</form>
-	<button id="btn-save" class="btn btn-primary">Confirm</button>
+	<button id="btn-update" class="btn btn-primary">Confirm</button>
 
 </div>
 

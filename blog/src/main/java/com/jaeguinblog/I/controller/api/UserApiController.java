@@ -21,6 +21,9 @@ public class UserApiController {
 	
 	@Autowired
 	private UserService userService;
+	
+	@Autowired
+	private AuthenticationManager authenticationManager;
 			
 	
 	@PostMapping("/auth/joinProc")
@@ -32,5 +35,15 @@ public class UserApiController {
 		userService.signup(user);
 		return new ResponseDto<Integer>(HttpStatus.OK.value(),1);//1에는 나중에 db insert하고 리턴된값 넣을거임.
 		
+	}
+	
+	@PutMapping("/user")
+	public ResponseDto<Integer> update(@RequestBody User user) { // key=value, x-www-form-urlencoded
+		userService.edituser(user);
+		// 여기서는 트랜잭션이 종료되기 때문에 DB에 값은 변경이 됐음.
+		// 하지만 세션값은 변경되지 않은 상태이기 때문에 우리가 직접 세션값을 변경해줄 것임.
+		// 세션 등록
+		
+		return new ResponseDto<Integer>(HttpStatus.OK.value(), 1);
 	}
 }
