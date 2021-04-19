@@ -24,7 +24,7 @@ public class Usercontroller {
 	}
 	
 	@GetMapping("/user/updateForm")
-	public String updateForm() {	
+	public String updateForm(@AuthenticationPrincipal PrincipalDetail principal) {	
 	  return "user/updateForm";
 	}
 }
